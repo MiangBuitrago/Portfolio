@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="icon" href="projects/iconEmpty.ico"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <title>MIANG | Front End Developer</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h2>MIANG</h2>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#linkHome">Home</a>
+            </li>
+            <li>
+                <a href="#linkAbout">About</a>
+            </li>
+            <li>
+                <a href="#linkPortfolio">Portfolio</a>
+            </li>
+            <li>
+                <a href="#mainFooter">Contact</a>
+            </li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <div class="home" id="linkHome">
+        <h2>Miguel Buitrago</h2>
+        <h4>Front-End Developer</h4>
+    </div>
+    <div class="about" id="linkAbout">
+        <div id="aboutMe">
+            <h2>About Me</h2>
+            <h3>Hello, mi name is Miguel Buitrago, I'm 21 years old and I'm a Front-End Developer</h3>
+            <p>Innovate Web Developer +1 years of experience in website development. Passion for front-end development in order to optimize and give an excellent appearance to the online web presence. I greatly enjoy teamwork and constant learning.</p>
+        </div>
+    </div>
+    <div class="portfolio" id="linkPortfolio">
+        <h2>Portfolio</h2>
+        <p>Here are some examples of my latest projects build using HTML, CSS, JavaScript and jQuery</p>
+        <div class="project_container">
+            <!--the height of all images must be 260px-->
+            <div class="project_item">
+                <a href="https://miangbuitrago.github.io/Detach/">
+                    <img src="projects/detach-sinfondo260.png" alt="Detach">
+                    <h2>Detach</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="contact" id="linkContact">
+        <h2>Contact</h2>
+        <p>You can send me an email or write me through my social networks</p>
+        <a href="mailto:miguelbuitrago1999@gmail.com"><h3>miguelbuitrago1999@gmail.com</h3></a>
+        <div class="social">
+            <a href="https://www.instagram.com/miguelbuitrago99/"><img src="imgs/igBlack32.png"></a>
+            <a href="https://github.com/MiangBuitrago/"><img src="imgs/github32.png"></a>
+            <a href="https://www.linkedin.com/in/miguel-buitrago-b4a5891b4/"><img src="imgs/linkedIn32.png"></a>
+        </div>
+    </div>
+    <footer id="mainFooter">
+        <address>&copy; Miguel Buitrago 2019</address>
+    </footer>
+    <a href="#" id="floating_button"><img src="imgs/floating_button.png"></a>
+
+    <!--SCRIPT-->
+    <script src="app.js"></script>
+    <script>
+        $(document).ready(function(){
+            /*over links*/
+            $(".nav-links a").mouseover(function(){
+                $(this).css("border-bottom","2px solid black");
+            });
+            $(".nav-links a").mouseout(function(){
+                $(this).css("border-bottom","none");
+            });
+            
+            /*Redirect to section*/
+            $(".nav-links a").click(function(e){
+                e.preventDefault();
+                var linkPulsado = $(this).attr("href");
+                if(linkPulsado === "#linkHome" || linkPulsado === "#mainFooter"){
+                    $("html,body").animate({scrollTop:$(linkPulsado).offset().top},1000);
+                }else{
+                    $("html,body").animate({scrollTop:$(linkPulsado).offset().top-100},1000);
+                }
+            });
+            
+            /*Redirect to home*/
+            var viewWidth = $(window).width();
+            if(viewWidth > 768){
+                $(window).scroll(function(){
+                    if(scrollY > 80){
+                        $("#floating_button").css("visibility","visible");
+                    }
+                    if(scrollY < 80){
+                        $("#floating_button").css("visibility","hidden");
+                    }
+                });
+                $("#floating_button").click(function(e){
+                    e.preventDefault();
+                    $("html,body").animate({scrollTop:$("#linkHome").offset().top},1000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

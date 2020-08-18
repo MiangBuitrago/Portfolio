@@ -225,7 +225,7 @@ footer{
     .nav-links{
         position: absolute;
         right: 0px;
-        height: 90vh;
+        height: 50vh;
         top: 10vh;
         background-color: #3D5FAD;
         display: flex;

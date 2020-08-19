@@ -84,7 +84,7 @@ nav{
 #aboutMe{
     height: 90%;
     width: 80%;
-    background-color: #e7be5f;
+    background-color: aliceblue;
     font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: space-evenly;
@@ -92,7 +92,7 @@ nav{
     text-align: center;
     flex-direction: column;
     padding: 5px 5px;
-    box-shadow: 3px 3px 10px #886922;
+    box-shadow: 3px 3px 10px #719AFB;
 }
 #aboutMe h2{
     font-size: 2em;
